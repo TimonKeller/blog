@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <div className='container mx-auto px-10 mb-8'>
+    <div className='container mx-auto mb-8'>
         <div className='w-full inline-block py-8'>
             <div className='md-float-left block'>
                 <Link href='/'>

@@ -7,6 +7,7 @@ export const getPosts = async () => {
             "Authaurization": process.env.GRAPH_CMS_TOKEN
         }
     })
+   
     const query = gql`
     query MyQuery {
         postsConnection {
@@ -31,15 +32,64 @@ export const getPosts = async () => {
                 name
                 slug
               }
+              content{
+                  raw
+              }
             }
           }
         }
       }
-    `
+    `;
 
   const result = await graphQLClient.request(query)
-  console.log(result.postsConnection.edges);
+
   return result.postsConnection.edges;
   
-}
+};
+
+export const getNewestPost = async() => {
+    const url = process.env.ENDPOINT;
+    const graphQLClient = new GraphQLClient(url, {
+        headers: {
+            "Authaurization": process.env.GRAPH_CMS_TOKEN
+        }
+    })
+   
+    const query = gql`
+        query getNewestPost() {
+            posts(
+                orderBy: createdAt_ASC
+                last: 1
+            ){
+                title
+                contentfoto {
+                    url
+              }
+              createdAt
+              content{
+                  raw
+              }
+              author {
+                bio
+                name
+                id
+                foto {
+                  url
+                }
+              }
+              categories {
+                name
+                slug
+              }
+            }
+        }
+    `;
+
+    const result = await graphQLClient.request(query)
+    console.log(result.posts);
+    return result.posts;
+};
+
+
+
 
