@@ -13,11 +13,11 @@ export default function Home({newPost, recentPosts }) {
         <div className='lg:col-span-8 col-span-1'>
           {newPost.map((newPost, index) => <Newestpost newPost={newPost} key={newPost.title}/>)}
         </div>
-        <div className='lg:col-span-4 col-span-1 px-20'>
-        <span className='text-2xl border-b-2 border-text'>
-          Vergangene Posts
-        </span>
-          <div className='relative top-8 '>
+        <div className='lg:col-span-4 col-span-4 pl-20'>
+          <span className='text-2xl border-b-2 border-text'>
+            Vergangene Posts
+          </span>
+          <div className='relative top-8 lg:divide-y-2 lg:divide-slate-700'>
             {recentPosts.map((recentPosts, index) => <Recentposts recentPosts={recentPosts} key={recentPosts.title}/>)}
           </div>
         </div>

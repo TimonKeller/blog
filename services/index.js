@@ -39,7 +39,6 @@ export const getNewestPost = async() => {
         }
     `;
     const result = await graphQLClient.request(query)
-    console.log(result.posts);
     return result.posts;
 };
    
@@ -55,7 +54,7 @@ export const getRecentPost = async() => {
         query getRecentPost() {
             posts(
                 orderBy: createdAt_ASC
-                last: 4
+                last: 3
             ){
                 title
                 teaser
@@ -83,7 +82,6 @@ export const getRecentPost = async() => {
         }
     `;
     const result = await graphQLClient.request(query)
-    console.log(result.posts);
     return result.posts;
 }
 
@@ -123,9 +121,43 @@ export const getPost = async(slug) => {
         }
     `;
     const result = await graphQLClient.request(query, { slug })
-    console.log(result.posts);
     return result.posts;
 }
 
+export const getAllPost = async() => {
+    const url = process.env.ENDPOINT;
+    const graphQLClient = new GraphQLClient(url, {
+        headers: {
+            "Authaurization": process.env.GRAPH_CMS_TOKEN
+        }
+    })
 
+    const query = gql`
+        query getAllPost() {
+            posts{
+                title
+                slug
+                teaser
+                contentfoto {
+                    url
+              }
+              createdAt
+              author {
+                bio
+                name
+                id
+                foto {
+                  url
+                }
+              }
+              categories {
+                name
+                slug
+              }
+            }
+        }
+    `;
+    const result = await graphQLClient.request(query)
+    return result.posts;
+};
 
