@@ -18,27 +18,28 @@ export const getNewestPost = async() => {
                 slug
                 contentfoto {
                     url
-              }
-              createdAt
-              content{
-                  raw
-              }
-              author {
-                bio
-                name
-                id
-                foto {
-                  url
                 }
-              }
-              categories {
-                name
-                slug
-              }
+                createdAt
+                content{
+                    raw
+                }
+                author {
+                    bio
+                    name
+                    id
+                    foto {
+                    url
+                    }
+                }
+                categories {
+                    name
+                    slug
+                }
             }
         }
     `;
     const result = await graphQLClient.request(query)
+    console.log(result.posts);
     return result.posts;
 };
    

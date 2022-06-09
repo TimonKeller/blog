@@ -14,7 +14,7 @@ const Recentposts = ({recentPosts}) => {
             {<img 
             src={recentPosts.contentfoto.url}
             alt={recentPosts.title}
-            className="object-top w-full lg:h-full md:h-64 object-cover py-4 "
+            className="object-top w-80 lg:h-52 md:h-64 object-cover py-4 "
             />}
             <div className='text-2xl mb-2'>
               {recentPosts.title}
@@ -28,7 +28,7 @@ const Recentposts = ({recentPosts}) => {
           })}
           <div className='cursor-pointer pt-2 text-2xs '>
             <Link href={`/post/${recentPosts.slug}`} key={recentPosts.title}>
-                <p className='border-b-2 inline-block'>
+                <p className='border-b-2 hover:border-black inline-block'>
                   Mehr lesen
                 </p>
             </Link>

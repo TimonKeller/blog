@@ -2,8 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import Link from 'next/link';
 
-
-
 const Newestpost = ({newPost}) => {
 
   const getContentFragment = (index, text, obj, type) => {
@@ -49,10 +47,10 @@ const Newestpost = ({newPost}) => {
   
   return (
     <div className='p-0 pb-12 mb-8'>
-      <div className='mb-2 px-10'>
+      <div className='mb-6 px-10'>
         {moment(newPost.createdAt).format('MMM DD, YYYY')}
       </div>
-      <div className='text-5xl mb-10 px-10'>
+      <div className='text-5xl mb-4 px-10'>
         {newPost.title}
       </div>
       <div className='relative overflow-hidden pb-80 mb-8'>
@@ -69,7 +67,9 @@ const Newestpost = ({newPost}) => {
         })}
         </span>
       </div>
-      
+      <div>
+        {newPost.location}
+      </div>
     </div>
   )
 }
