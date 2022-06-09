@@ -1,52 +1,5 @@
 import { gql, GraphQLClient } from 'graphql-request'
 
-export const getPosts = async () => {
-    const url = process.env.ENDPOINT;
-    const graphQLClient = new GraphQLClient(url, {
-        headers: {
-            "Authaurization": process.env.GRAPH_CMS_TOKEN
-        }
-    })
-   
-    const query = gql`
-    query MyQuery {
-        postsConnection {
-          edges {
-            node {
-              author {
-                bio
-                name
-                id
-                foto {
-                  url
-                }
-              }
-              createdAt
-              slug
-              title
-              teaser
-              contentfoto {
-                url
-              }
-              categories {
-                name
-                slug
-              }
-              content{
-                  raw
-              }
-            }
-          }
-        }
-      }
-    `;
-
-  const result = await graphQLClient.request(query)
-
-  return result.postsConnection.edges;
-  
-};
-
 export const getNewestPost = async() => {
     const url = process.env.ENDPOINT;
     const graphQLClient = new GraphQLClient(url, {
@@ -54,7 +7,7 @@ export const getNewestPost = async() => {
             "Authaurization": process.env.GRAPH_CMS_TOKEN
         }
     })
-   
+
     const query = gql`
         query getNewestPost() {
             posts(
@@ -62,6 +15,7 @@ export const getNewestPost = async() => {
                 last: 1
             ){
                 title
+                slug
                 contentfoto {
                     url
               }
@@ -84,12 +38,94 @@ export const getNewestPost = async() => {
             }
         }
     `;
-
     const result = await graphQLClient.request(query)
     console.log(result.posts);
     return result.posts;
 };
+   
+export const getRecentPost = async() => {
+    const url = process.env.ENDPOINT;
+    const graphQLClient = new GraphQLClient(url, {
+        headers: {
+            "Authaurization": process.env.GRAPH_CMS_TOKEN
+        }
+    })
 
+    const query = gql`
+        query getRecentPost() {
+            posts(
+                orderBy: createdAt_ASC
+                last: 4
+            ){
+                title
+                teaser
+                contentfoto {
+                    url
+              }
+              createdAt
+              slug
+              content{
+                  raw
+              }
+              author {
+                bio
+                name
+                id
+                foto {
+                  url
+                }
+              }
+              categories {
+                name
+                slug
+              }
+            }
+        }
+    `;
+    const result = await graphQLClient.request(query)
+    console.log(result.posts);
+    return result.posts;
+}
+
+export const getPost = async(slug) => {
+    const url = process.env.ENDPOINT;
+    const graphQLClient = new GraphQLClient(url, {
+        headers: {
+            "Authaurization": process.env.GRAPH_CMS_TOKEN
+        }
+    })
+    const query = gql`
+        query getPost($slug: String!) {
+            posts(where: { slug: $slug }){
+                title
+                teaser
+                createdAt
+                slug
+                contentfoto {
+                    url
+                }
+                content{
+                    raw
+                }
+                author {
+                    bio
+                    name
+                    id
+                    foto {
+                        url
+                    }
+                }
+                categories {
+                    name
+                    slug
+                }
+            }
+        }
+    `;
+    const result = await graphQLClient.request(query, { slug })
+    console.log(result.posts);
+    return result.posts;
+}
 
 
 

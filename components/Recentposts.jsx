@@ -2,32 +2,38 @@ import React, {useState, useEffect} from 'react'
 import moment from 'moment';
 import Link from 'next/link';
 
-import { getCategories } from '../services';
-
-const Recentposts = ({posts}) => {
+const Recentposts = ({recentPosts}) => {
   return (
     <div>
-      <div className='pb-12 px-4'>
-        <div className='flex items-center justify-between gap-2'>
+      <div className='pb-12'>
+        <div>
           <div className='flex-col'>
             <div className='text-xs mb'>
-              {moment(posts.createdAt).format('MMM DD, YYYY')}
+              {moment(recentPosts.createdAt).format('MMM DD, YYYY')}
             </div>
+            {<img 
+            src={recentPosts.contentfoto.url}
+            alt={recentPosts.title}
+            className="object-top w-full lg:h-full md:h-64 object-cover py-4 "
+            />}
             <div className='text-2xl mb-2'>
-              {posts.title}
+              {recentPosts.title}
             </div>
           </div>
-            {<img 
-            src={posts.contentfoto.url}
-            alt={posts.title}
-            className="rounded-full object-top w-16 h-16 object-cover  "
-            />}
+            
         </div>
-          {posts.teaser}
-          {posts.categories.map((category) => {
+          {recentPosts.teaser}
+          {recentPosts.categories.map((category) => {
             category
           })}
-  </div>
+          <div className='cursor-pointer pt-2 text-2xs '>
+            <Link href={`/post/${recentPosts.slug}`} key={recentPosts.title}>
+                <p className='border-b-2 inline-block'>
+                  Mehr lesen
+                </p>
+            </Link>
+          </div>
+      </div>
     </div>
   )
 }
