@@ -1,8 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import moment from 'moment';
 import Link from 'next/link';
+import ReactMapGL from 'react-map-gl';
+import { endianness } from 'os';
+import { env } from 'process';
 
 const Newestpost = ({newPost}) => {
+  const [coordinates, setCoordinates] = useState({
+    longitude: 45.4211,
+    latitude: -75.6903,
+    width: '100vw',
+    height: '400',
+    zoom: 10,
+  });
 
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
@@ -68,6 +78,12 @@ const Newestpost = ({newPost}) => {
         </span>
       </div>
       <div>
+        <ReactMapGL 
+          {...coordinates} 
+          mapboxApiAccessToken={process.env.REACT_APP_MAP_ACCESS_TOKEN}
+        >
+          Hier kommen die Coordinaten
+        </ReactMapGL>
         {newPost.location}
       </div>
     </div>
