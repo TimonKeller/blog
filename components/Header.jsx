@@ -23,7 +23,7 @@ const Header = () => {
                                 Alle posts
                             </span>
                         </Link>
-                        <Link href='/'>
+                        <Link href='/aboutUs'>
                             <span className='cursor-pointer font-bold text-lg text-gray-600 hover:text-text'>
                                 About Us
                             </span>
