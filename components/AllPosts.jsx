@@ -14,7 +14,7 @@ const AllPosts = ({allPosts}) => {
             {<img 
             src={allPosts.contentfoto.url}
             alt={allPosts.title}
-            className="object-top w-full lg:h-64 md:h-64 object-cover py-4 "
+            className="object-top w-full h-52 lg:h-64 md:h-64 object-cover py-4 "
             />}
             <div className='text-2xl mb-2'>
               {allPosts.title}

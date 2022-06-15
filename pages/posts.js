@@ -15,7 +15,7 @@ const posts = ({allPosts}) => {
               In diesem Bereich finden Sie die neuesten Artikel, die von uns verfasst wurden. Wir laden Sie zum Lesen ein. Besuchen Sie unsere Website jeden Tag und es wird sicherlich eine nützliche und angenehme Zeit für Sie sein.
             </p>
         </div>
-        <div className=' grid grid-cols-3 col-span-1 gap-x-24 px-4 pt-12'>
+        <div className=' grid grid-cols-1 lg:grid-cols-3 col-span-1 gap-x-24 px-4 pt-12'>
             {allPosts.map((allPosts, index) => <AllPosts allPosts={allPosts} key={allPosts.title}/>)}
         </div>
       </div>
