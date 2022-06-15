@@ -68,7 +68,7 @@ const Newestpost = ({newPost}) => {
         })}
         </span>
       </div>
-      <div className=" container inline-flex min-w-[550px] min-h-[600px]">
+      <div className=" container inline-flex">
         <Map>
           {console.log("acces-token in newpost" + process.env.mapbox_key)}
         </Map>
