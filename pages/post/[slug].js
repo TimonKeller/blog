@@ -1,10 +1,16 @@
 import React from 'react'
+import {useRouter} from 'next/router'
 
 import { getNewestPost, getPost, getRecentPost } from '../../services';
 
 import {Recentposts, Newestpost} from '../../components';
 
 const Post = ({post, recentPosts}) => {
+  const router = useRouter();
+
+  if(router.isFallback){
+    return <Loader/>
+  }
   return (
     <div className="container mx-auto mb-8">
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-x-24 lg:divide-x-2 lg:divide-slate-700 px-4'>
@@ -31,6 +37,7 @@ export async function getServerSideProps( {params} ){
     const data = await getPost(params.slug)
     const recentPosts = (await getRecentPost()) || [];
     return {
-      props: {post: data, recentPosts}
+      props: {post: data, recentPosts},
+      fallback: true,
     }
 }

@@ -14,7 +14,7 @@ const Recentposts = ({recentPosts}) => {
             {<img 
             src={recentPosts.contentfoto.url}
             alt={recentPosts.title}
-            className="object-top w-80 lg:h-52 md:h-64 object-cover py-4 "
+            className="object-top w-80 lg:h-52 md:h-64 object-cover py-4 h-44 "
             />}
             <div className='text-2xl mb-2'>
               {recentPosts.title}
