@@ -14,10 +14,8 @@ export default function Home({newPost, recentPosts }) {
           {newPost.map((newPost, index) => <Newestpost newPost={newPost} key={newPost.title}/>)}
         </div>
         <div className='lg:col-span-5 px-20'>
-          <span className='text-xl border-b-2 border-text'>
-            Vergangene Posts
-          </span>
-          <div className='relative top-8'>
+          <div className='lg:sticky top-8 mt-12'>
+            <p className='lg:sticky text-xl border-b-2 border-text inline-block mb-12'>Vergangene Posts</p>
             {recentPosts.map((recentPosts, index) => <Recentposts recentPosts={recentPosts} key={recentPosts.title}/>)}
           </div>
         </div>

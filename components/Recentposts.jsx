@@ -14,7 +14,7 @@ const Recentposts = ({recentPosts}) => {
             {<img 
             src={recentPosts.contentfoto.url}
             alt={recentPosts.title}
-            className="object-top w-80 lg:h-52 md:h-64 object-cover py-4 h-44 "
+            className="object-top w-80 lg:h-42 md:h-42 object-cover py-4 h-44 "
             />}
             <div className='text-2xl mb-2'>
               {recentPosts.title}
@@ -22,7 +22,9 @@ const Recentposts = ({recentPosts}) => {
           </div>
             
         </div>
-          {recentPosts.teaser}
+          <p className='line_clamp'>
+            {recentPosts.teaser}
+          </p>
           {recentPosts.categories.map((category) => {
             category
           })}
