@@ -27,7 +27,7 @@ const AllPosts = ({allPosts}) => {
           })}
           <div className='cursor-pointer pt-2 text-2xs '>
             <Link href={`/post/${allPosts.slug}`} key={allPosts.title}>
-                <p className='border-b-2 inline-block'>
+                <p className='border-b-2 hover:border-black inline-block'>
                   Mehr lesen
                 </p>
             </Link>
