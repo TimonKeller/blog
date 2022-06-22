@@ -15,6 +15,7 @@ const Recentposts = ({recentPosts}) => {
             src={recentPosts.contentfoto.url}
             alt={recentPosts.title}
             className="object-top w-80 lg:h-42 md:h-42 object-cover py-4 h-44 "
+            loading='lazy'
             />}
             <div className='text-2xl mb-2'>
               {recentPosts.title}

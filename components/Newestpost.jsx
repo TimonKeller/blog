@@ -59,6 +59,7 @@ const Newestpost = ({newPost}) => {
           src={newPost.contentfoto.url}
           alt={newPost.title}
           className="object-top absolute h-80 w-full object-cover"
+          loading='lazy'
           />
       </div>
       <div className='px-10'>
