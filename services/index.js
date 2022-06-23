@@ -7,7 +7,6 @@ export const getNewestPost = async() => {
             "Authaurization": process.env.GRAPH_CMS_TOKEN
         }
     })
-
     const query = gql`
         query getNewestPost() {
             posts(
@@ -39,7 +38,7 @@ export const getNewestPost = async() => {
         }
     `;
     const result = await graphQLClient.request(query)
-    console.log(result.posts);
+    console.log("newest Post" + result.posts);
     return result.posts;
 };
    
