@@ -10,7 +10,7 @@ module.exports = {
         'text': '#161618',
         'green': '#2F4C39',
         'landingbg': '#303030',
-        'landingtext': '#e1e1e1'
+        'landingtext': '#e1e1e1',
       }
     },
   },
