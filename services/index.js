@@ -49,7 +49,6 @@ export const getRecentPost = async() => {
             "Authaurization": process.env.GRAPH_CMS_TOKEN
         }
     })
-
     const query = gql`
         query getRecentPost() {
             posts(
