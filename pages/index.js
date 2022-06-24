@@ -28,7 +28,7 @@ export async function getStaticProps(){
   const newPost = (await getNewestPost()) || [];
   const recentPosts = (await getRecentPost()) || [];
   return {
-    props: {newPost, recentPosts}
+    props: {newPost: newPost, recentPosts: recentPosts}
   }
 }
 

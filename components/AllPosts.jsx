@@ -24,7 +24,8 @@ const AllPosts = ({allPosts}) => {
         </div>
             {allPosts.teaser}
             {allPosts.categories.map((category) => {
-            category
+            category.name
+            console.log(category.name)
           })}
           <div className='cursor-pointer pt-2 text-2xs '>
             <Link href={`/post/${allPosts.slug}`} key={allPosts.title}>

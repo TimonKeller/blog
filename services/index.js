@@ -38,10 +38,11 @@ export const getNewestPost = async() => {
         }
     `;
     const result = await graphQLClient.request(query)
-    console.log("newest Post" + result.posts);
+    console.log("newest Post" + result.posts.title);
     return result.posts;
 };
-   
+
+
 export const getRecentPost = async() => {
     const url = process.env.ENDPOINT;
     const graphQLClient = new GraphQLClient(url, {

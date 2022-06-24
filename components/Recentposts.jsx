@@ -17,6 +17,11 @@ const Recentposts = ({recentPosts}) => {
             className="object-top w-80 lg:h-42 md:h-42 object-cover py-4 h-44 "
             loading='lazy'
             />}
+           
+            {recentPosts.categories.map((category) => {
+            <div className='text-lg'>{category.name}</div>
+          })}
+            
             <div className='text-2xl mb-2'>
               {recentPosts.title}
             </div>
@@ -26,9 +31,7 @@ const Recentposts = ({recentPosts}) => {
           <p className='line_clamp'>
             {recentPosts.teaser}
           </p>
-          {recentPosts.categories.map((category) => {
-            category
-          })}
+          
           <div className='cursor-pointer pt-2 text-2xs '>
             <Link href={`/post/${recentPosts.slug}`} key={recentPosts.title}>
                 <p className='border-b-2 hover:border-black inline-block'>
