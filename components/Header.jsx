@@ -8,7 +8,7 @@ const Header = () => {
             <div className='w-full inline-block'>
                 <div className='md-float-left block flex justify-between items-center'>
                     <Link href='/'>
-                        <span className='cursor-pointer font-bold text-4xl'>
+                        <span className='cursor-pointer md:text-4xl text-2xl'>
                             drapetomania.
                         </span>
                     </Link>
