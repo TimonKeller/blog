@@ -1,13 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import {useRouter} from 'next/router';
 import { Layout } from '../components';
 import '../styles/globals.css'
 
 
 function MyApp ({ Component, pageProps }) {
-  return (
-    <Layout>
-      <Component {...pageProps}/>
-    </Layout>
-  )
+  const getLayout = Component.getLayout || ((page) => page)
+  return getLayout(<Component {...pageProps} />)
 }
 export default MyApp

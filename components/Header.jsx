@@ -1,21 +1,21 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import Link from 'next/link';
 
 const Header = () => {
   return (
-    <div className='bg-neutral-500/20'>
-        <div className='container mx-auto mb-12 px-4 md:px-0 py-4'>
+    <div className='bg-landingtext'>
+        <div className='container mx-auto mb-12 px-4 md:px-0 py-6'>
             <div className='w-full inline-block'>
                 <div className='md-float-left block flex justify-between items-center'>
                     <Link href='/'>
                         <span className='cursor-pointer font-bold text-4xl'>
-                            BlogName
+                            drapetomania.
                         </span>
                     </Link>
                     <div className='hidden md:inline-block'>
-                        <Link href='/'>
+                        <Link href='/newestPage'>
                             <span className='cursor-pointer font-bold text-lg text-gray-600 hover:text-text pr-4'>
-                                Home
+                                Neuster Post
                             </span>
                         </Link>
                         <Link href='/posts' >

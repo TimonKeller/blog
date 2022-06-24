@@ -1,5 +1,6 @@
 import React from 'react'
 import AllPosts from '../components/AllPosts';
+import { Layout } from '../components';
 
 import { getAllPost } from '../services';
 
@@ -25,9 +26,18 @@ const posts = ({allPosts}) => {
 
 export default posts
 
+posts.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  )
+}
+
 export async function getServerSideProps(){
     const data = await getAllPost()
     return {
       props: {allPosts: data}
     }
 }
+
