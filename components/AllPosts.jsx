@@ -22,7 +22,9 @@ const AllPosts = ({allPosts}) => {
             </div>
           </div>  
         </div>
-            {allPosts.teaser}
+        <div className='line_clamp'>
+          {allPosts.teaser}
+        </div>
             {allPosts.categories.map((category) => {
             category.name
             console.log(category.name)
