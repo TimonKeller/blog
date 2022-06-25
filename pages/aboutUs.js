@@ -22,8 +22,8 @@ const aboutUs = () => {
                         </p>
                     </div>
                     <div className='px-12 grid mb-36 lg:px-0 lg:grid-cols-12 lg:gap-x-8 '>
-                        <img className='mb-8 lg:mb-8 lg:col-span-6' src='nathalie.jpeg'></img>
-                        <span className='lg:col-span-6 self-center'> 
+                        <img className='mb-8 self-center lg:mb-8 lg:col-span-6' src='nathalie.jpeg'></img>
+                        <span className='lg:col-span-6'> 
                             <p className='md opacity-60 mb-2'>TEXT/BILDER</p>
                             <h1 className='text-3xl mb-6'>Nathalie</h1>
                             Ich heisse Nathalie, bin 18 Jahre alt und liebe es zu Reisen, neue Kulturen kennenzulernen oder coole Restaurants zu besuchen. Städtetrips sind für mich genauso spannend wie atemberaubende Orte ausserhalb des Trubels zu entdecken. Nach jeder Reise kehre ich mit neuen Erinnerungen und Erfahrungen zurück in meine Heimat, die Schweiz, wo ich geboren und aufgewachsen bin. Timon und ich sind ein eingespieltes Team, welches sich freut, interessante Blogposts für Euch erstellen zu dürfen. 
@@ -35,7 +35,7 @@ const aboutUs = () => {
                             <h1 className='text-3xl mb-6'>Timon</h1>
                             Ich heisse Timon, bin 23 Jahre alt und befinde mich momentan im letzten Semester meines iCompetence Studiums. Während den Semesterferien habe ich die Zeit genutzt, um neue Orte zu bereisen und Foodspots zu entdecken. Dank meines Studiums und unseren gemeinsamen Leidenschaften sind wir auf die Idee gekommen, diesen Blog für Euch zu erstellen und sind mit Freude und Passion dabei.
                         </span>
-                        <img className='lg:col-span-6' src='timon.jpeg'></img>
+                        <img className='self-center lg:col-span-6' src='timon.jpeg'></img>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ export default function Home() {
           </h1>
           <div className='md:inline-block text-center'>
             <Link href='/newestPage'>
-                <span className='cursor-pointer font-bold text-lg text-landingtext opacity-50 hover:opacity-100  pr-4'>
+                <span className='cursor-pointer font-bold text-lg text-landingtext opacity-50 hover:opacity-100 pr-4'>
                     Neuster Post
                 </span>
             </Link>
