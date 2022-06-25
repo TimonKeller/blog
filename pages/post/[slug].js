@@ -1,7 +1,7 @@
 import React from 'react'
-import {useRouter} from 'next/router'
+import {Layout} from '../../components'
 
-import { getNewestPost, getPost, getRecentPost } from '../../services';
+import {getPost, getRecentPost } from '../../services';
 
 import {Recentposts, Newestpost} from '../../components';
 
@@ -13,18 +13,15 @@ const Post = ({post, recentPosts}) => {
             {post.map((post, index) => <Newestpost newPost={post} key={post.title}/>)}
             </div>
             <div className='lg:col-span-5  col-span-1 px-20'>
-            <span className='text-xl border-b-2 border-text'>
-                Vergangene Posts
-            </span>
-            <div className='relative top-8 '>
+              <div className='lg:sticky top-8 mt-12'>
+                <p className='lg:sticky text-xl border-b-2 border-text inline-block mb-12'>Vergangene Posts</p>
                 {recentPosts.map((recentPosts, index) => <Recentposts recentPosts={recentPosts} key={recentPosts.title}/>)}
-            </div>
+              </div>  
             </div>
         </div>
     </div>
   )
 }
-
 
 export default Post
 
@@ -34,4 +31,12 @@ export async function getServerSideProps( {params} ){
     return {
       props: {post: data, recentPosts},
     }
+}
+
+Post.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  )
 }

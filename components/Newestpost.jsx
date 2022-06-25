@@ -24,9 +24,9 @@ const Newestpost = ({newPost}) => {
 
     switch (type) {
       case 'heading-two':
-        return <h2 key={index} className="text-3xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h2>;
+        return <h2 key={index} className="text-7xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h2>;
       case 'heading-three':
-        return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+        return <h3 key={index} className="text-3xl mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
       case 'paragraph':
         return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'heading-four':
@@ -51,7 +51,7 @@ const Newestpost = ({newPost}) => {
       <div className='mb-6 px-10'>
         {moment(newPost.createdAt).format('MMM DD, YYYY')}
       </div>
-      <div className='text-5xl mb-4 px-10'>
+      <div className='text-5xl mb-12 px-10'>
         {newPost.title}
       </div>
       <div className='relative overflow-hidden pb-80 mb-8'>
