@@ -54,7 +54,7 @@ export const getRecentPost = async() => {
         query getRecentPost() {
             posts(
                 orderBy: createdAt_ASC
-                last: 2
+                first: 2
             ){
                 title
                 teaser
