@@ -54,8 +54,8 @@ export const getRecentPost = async(slug) => {
         query getRecentPost($slug: String!) {
             posts(
                 where:{ slug_not: $slug }
-                orderBy: createdAt_ASC
-                last: 2
+                orderBy: createdAt_DESC
+                first: 2
             ){
                 title
                 teaser
