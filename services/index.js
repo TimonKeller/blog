@@ -15,6 +15,7 @@ export const getNewestPost = async() => {
             ){
                 title
                 slug
+                id
                 contentfoto {
                     url
                 }
@@ -38,12 +39,11 @@ export const getNewestPost = async() => {
         }
     `;
     const result = await graphQLClient.request(query)
-    console.log("newest Post" + result.posts.title);
     return result.posts;
 };
 
 
-export const getRecentPost = async() => {
+export const getRecentPost = async(slug) => {
     const url = process.env.ENDPOINT;
     const graphQLClient = new GraphQLClient(url, {
         headers: {
@@ -51,10 +51,11 @@ export const getRecentPost = async() => {
         }
     })
     const query = gql`
-        query getRecentPost() {
+        query getRecentPost($slug: String!) {
             posts(
+                where:{ slug_not: $slug }
                 orderBy: createdAt_ASC
-                first: 2
+                last: 2
             ){
                 title
                 teaser
@@ -81,7 +82,7 @@ export const getRecentPost = async() => {
             }
         }
     `;
-    const result = await graphQLClient.request(query)
+    const result = await graphQLClient.request(query, {slug})
     return result.posts;
 }
 

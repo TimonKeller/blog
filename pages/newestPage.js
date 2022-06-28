@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Recentposts, Newestpost, Layout} from '../components/';
 
 import { getNewestPost, getRecentPost } from '../services';
 
 const newestPage = ({newPost, recentPosts }) => {
+ 
   return (
     <div className="container mx-auto mb-8">
         <div className='grid grid-cols-1 lg:grid-cols-12 md:gap-x-24 lg:divide-x-2 lg:divide-slate-700 lg:px-4'>
@@ -34,8 +35,10 @@ newestPage.getLayout = function getLayout(page) {
 
 export async function getStaticProps(){
     const newPost = (await getNewestPost()) || [];
-    const recentPosts = (await getRecentPost()) || [];
+    const recentPosts = (await getRecentPost(newPost.map((newPost) => newPost.slug).toString())) || [];
+    console.log(newPost.map((newPost) => newPost.id).toString())
     return {
-      props: {newPost: newPost, recentPosts: recentPosts}
+      props: {newPost: newPost, recentPosts: recentPosts},     
     }
 }
+
