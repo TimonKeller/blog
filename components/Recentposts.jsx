@@ -3,7 +3,7 @@ import moment from "moment";
 import Link from "next/link";
 import newPost from "../pages/newestPage";
 
-const Recentposts = ({ recentPosts }) => {
+const Recentposts = ({ recentPosts, newPost }) => {
   return (
     <div>
       <div className="pb-12">
@@ -11,7 +11,6 @@ const Recentposts = ({ recentPosts }) => {
           <div className="flex-col">
             <div className="text-xs mb">
               {moment(recentPosts.createdAt).format("MMM DD, YYYY")}
-              {newPost.id}
             </div>
             {
               <img
@@ -35,6 +34,7 @@ const Recentposts = ({ recentPosts }) => {
           <Link href={`/post/${recentPosts.slug}`} key={recentPosts.title}>
             <p className="border-b-2 hover:border-black inline-block">
               Mehr lesen
+              {console.log(recentPosts.slug)}
             </p>
           </Link>
         </div>

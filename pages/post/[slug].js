@@ -27,7 +27,7 @@ export default Post
 
 export async function getServerSideProps( {params} ){
     const data = await getPost(params.slug)
-    const recentPosts = (await getRecentPost()) || [];
+    const recentPosts = (await getRecentPost(data[0].slug)) || [];
     return {
       props: {post: data, recentPosts},
     }
