@@ -30,12 +30,12 @@ const aboutUs = () => {
                         </span>
                     </div>
                     <div className='px-12 grid  lg:px-0  lg:grid-cols-12 lg:gap-x-8'>
-                        <span className='mb-8 lg:mb-8 lg:col-span-6 self-center'> 
+                        <span className='mb-8 lg:mb-8 lg:col-span-6 self-center  order-1 md:order-2'> 
                             <p className='md opacity-60 mb-2'>WEBSEITE</p>
                             <h1 className='text-3xl mb-6'>Timon</h1>
                             Ich heisse Timon, bin 23 Jahre alt und befinde mich momentan im letzten Semester meines iCompetence Studiums. Während den Semesterferien habe ich die Zeit genutzt, um neue Orte zu bereisen und Foodspots zu entdecken. Dank meines Studiums und unseren gemeinsamen Leidenschaften sind wir auf die Idee gekommen, diesen Blog für Euch zu erstellen und sind mit Freude und Passion dabei.
                         </span>
-                        <img className='self-center lg:col-span-6' src='timon.jpeg'></img>
+                        <img className='self-center lg:col-span-6 mb-8 lg:mb-0' src='timon.jpeg'></img>
                     </div>
                 </div>
             </div>
