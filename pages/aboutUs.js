@@ -22,7 +22,7 @@ const aboutUs = () => {
                         </p>
                     </div>
                     <div className='px-12 grid mb-36 lg:px-0 lg:grid-cols-12 lg:gap-x-8 '>
-                        <img className='self-center  lg:col-span-6' src='nathalie.jpeg'></img>
+                        <img className='self-center mb-8 lg:mb-0 lg:col-span-6' src='nathalie.jpeg'></img>
                         <span className='lg:col-span-6 self-center'> 
                             <p className='md opacity-60 mb-2'>TEXT/BILDER</p>
                             <h1 className='text-3xl mb-6'>Nathalie</h1>
