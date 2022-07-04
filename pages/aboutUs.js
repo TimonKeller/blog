@@ -22,8 +22,8 @@ const aboutUs = () => {
                         </p>
                     </div>
                     <div className='px-12 grid mb-36 lg:px-0 lg:grid-cols-12 lg:gap-x-8 '>
-                        <img className='mb-8 self-center lg:mb-8 lg:col-span-6' src='nathalie.jpeg'></img>
-                        <span className='lg:col-span-6'> 
+                        <img className='self-center  lg:col-span-6' src='nathalie.jpeg'></img>
+                        <span className='lg:col-span-6 self-center'> 
                             <p className='md opacity-60 mb-2'>TEXT/BILDER</p>
                             <h1 className='text-3xl mb-6'>Nathalie</h1>
                             Ich heisse Nathalie, bin 18 Jahre alt und liebe es zu Reisen, neue Kulturen kennenzulernen oder coole Restaurants zu besuchen. Städtetrips sind für mich genauso spannend wie atemberaubende Orte ausserhalb des Trubels zu entdecken. Nach jeder Reise kehre ich mit neuen Erinnerungen und Erfahrungen zurück in meine Heimat, die Schweiz, wo ich geboren und aufgewachsen bin. Timon und ich sind ein eingespieltes Team, welches sich freut, interessante Blogposts für Euch erstellen zu dürfen. 
