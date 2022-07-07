@@ -33,7 +33,7 @@ newestPage.getLayout = function getLayout(page) {
     )
   }
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
     const newPost = (await getNewestPost()) || [];
     const recentPosts = (await getRecentPost(newPost[0].slug)) || [];
     console.log(newPost[0].slug)
