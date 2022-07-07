@@ -25,7 +25,7 @@ const Post = ({post, recentPosts}) => {
 
 export default Post
 
-export async function getServerSideProps( {params} ){
+export async function getStaticProps( {params} ){
     const data = await getPost(params.slug)
     const recentPosts = (await getRecentPost(data[0].slug)) || [];
     return {

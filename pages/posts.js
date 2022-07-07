@@ -34,7 +34,7 @@ posts.getLayout = function getLayout(page) {
   )
 }
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
     const data = await getAllPost()
     return {
       props: {allPosts: data}
