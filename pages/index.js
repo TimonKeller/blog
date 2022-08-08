@@ -11,7 +11,7 @@ export default function Home() {
         </Head>
         <div className='align-center justify-center flex flex-col h-screen overflow-hidden'>
           <h1 className='text-center font-bold text-landingtext text-6xl mb-8'>
-            draptemonia.
+            akihi.
           </h1>
           <div className='md:inline-block text-center'>
             <Link href='/newestPage'>

@@ -9,7 +9,7 @@ module.exports = {
         'background': '#FAF9F6',
         'text': '#161618',
         'green': '#2F4C39',
-        'landingbg': '#303030',
+        'landingbg': /* '193655' *//* '#0f1e33' */'#303030',
         'landingtext': '#e1e1e1',
       }
     },

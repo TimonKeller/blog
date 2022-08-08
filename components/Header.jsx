@@ -11,7 +11,7 @@ const Header = () => {
           <div className="md-float-left block flex justify-between items-center">
             <Link href="/">
               <span className="cursor-pointer md:text-4xl text-2xl text-landingtext">
-                drapetomania.
+                akihi.
               </span>
             </Link>
             <div className="hidden md:inline-block">
