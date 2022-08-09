@@ -6,8 +6,8 @@ export default function Home() {
     <div className='bg-landingbg md:px-0 px-4'>
       <div className="container mx-auto">
         <Head>
-          <title>Hier kommt noch einen Blog Namen</title>
-          <link rel="icon" href="/favicon.ico" />
+          <title>akihi.</title>
+          <link rel="icon" href="/akihi_logo.png" />
           <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=T7eLgg"></script>
         </Head>
         <div className='align-center justify-center flex flex-col h-screen overflow-hidden'>
