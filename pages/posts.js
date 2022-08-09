@@ -9,7 +9,7 @@ const posts = ({allPosts}) => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 5000)
+    setTimeout(() => setLoading(false), 9000)
   }, [])
 
   return (
