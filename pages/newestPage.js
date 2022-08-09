@@ -36,7 +36,6 @@ newestPage.getLayout = function getLayout(page) {
 export async function getStaticProps(){
     const newPost = (await getNewestPost()) || [];
     const recentPosts = (await getRecentPost(newPost[0].slug)) || [];
-    console.log(newPost[0].slug)
     return {
       props: {newPost: newPost, recentPosts: recentPosts},     
     }

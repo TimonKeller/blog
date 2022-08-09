@@ -34,7 +34,6 @@ const Recentposts = ({ recentPosts, newPost }) => {
           <Link href={`/post/${recentPosts.slug}`} key={recentPosts.title}>
             <p className="border-b-2 hover:border-black inline-block">
               Mehr lesen
-              {console.log(recentPosts.slug)}
             </p>
           </Link>
         </div>

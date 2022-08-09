@@ -19,14 +19,15 @@ const AllPosts = ({ allPosts, setLoading }) => {
                 loading="lazy"
               />
             }
-            <div className="text-2xl mb-2">{allPosts.title}</div>
+            <div className="flex">
+              <div className="text-2xl mb-2">{allPosts.title}</div>
+              <div className="self-center mb-1 ml-2 p-1  rounded-md bg-landingbg text-background">
+                {allPosts.categories[0].name}
+              </div>
+            </div>
           </div>
         </div>
         <div className="line_clamp">{allPosts.teaser}</div>
-        {allPosts.categories.map((category) => {
-          category.name;
-          console.log(category.name);
-        })}
         <div className="cursor-pointer pt-2 text-2xs ">
           <Link href={`/post/${allPosts.slug}`} key={allPosts.title}>
             <p
