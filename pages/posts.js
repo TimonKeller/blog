@@ -9,8 +9,20 @@ const posts = ({allPosts}) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000)
+    setTimeout(() => setLoading(false), 5000)
   }, [])
+
+  posts.getLayout = function getLayout(page) {
+    {if(loading === false){
+      return (
+        <Layout>
+          {page}
+        </Layout>
+      )
+    } else {
+      {page}
+    }}
+  }
 
   return (
     <>
@@ -31,7 +43,9 @@ const posts = ({allPosts}) => {
         </div>
       </div>
     ) : (
-      <LoadingPage/>
+      <div className="h-full">
+        <LoadingPage/>
+      </div>
     )}
     </>
   )
@@ -39,13 +53,7 @@ const posts = ({allPosts}) => {
 
 export default posts
 
-posts.getLayout = function getLayout(page) {
-  return (
-    <Layout>
-      {page}
-    </Layout>
-  )
-}
+
 
 export async function getStaticProps(){
     const data = await getAllPost()
