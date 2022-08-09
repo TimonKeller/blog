@@ -5,9 +5,16 @@ const LoadingPage = () => {
     <div className="bg-landingbg h-full">
       <div className="container mx-auto">
         <div className="align-center justify-center flex flex-col h-screen overflow-hidden">
-          <h1 className="text-center font-bold text-landingtext text-6xl mb-8">
-            akihi.
-          </h1>
+          <div class="waviy">
+            <div className="text-center font-bold text-landingtext text-6xl mb-8">
+              <span>a</span>
+              <span>k</span>
+              <span>i</span>
+              <span>h</span>
+              <span>i</span>
+              <span>.</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
