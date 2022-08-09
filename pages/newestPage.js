@@ -31,7 +31,7 @@ newestPage.getLayout = function getLayout(page) {
         {page}
       </Layout>
     )
-  }
+}
 
 export async function getStaticProps(){
     const newPost = (await getNewestPost()) || [];
