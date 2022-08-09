@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Link from "next/link";
 
-const AllPosts = ({ allPosts }) => {
+const AllPosts = ({ allPosts, setLoading }) => {
   return (
     <div className="pb-12">
       <div>
@@ -29,7 +29,10 @@ const AllPosts = ({ allPosts }) => {
         })}
         <div className="cursor-pointer pt-2 text-2xs ">
           <Link href={`/post/${allPosts.slug}`} key={allPosts.title}>
-            <p className="border-b-2 hover:border-black inline-block">
+            <p
+              className="border-b-2 hover:border-black inline-block"
+              onClick={() => setLoading(true)}
+            >
               Mehr lesen
             </p>
           </Link>
