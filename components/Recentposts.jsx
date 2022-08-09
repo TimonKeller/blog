@@ -24,8 +24,12 @@ const Recentposts = ({ recentPosts, newPost }) => {
             {recentPosts.categories.map((category) => {
               <div className="text-lg">{category.name}</div>;
             })}
-
-            <div className="text-2xl mb-2">{recentPosts.title}</div>
+            <div className="flex">
+              <div className="text-2xl mb-2">{recentPosts.title}</div>
+              <div className="inline-block self-center text-sm mb-1 ml-4 p-1 rounded-md bg-landingbg text-background">
+                {recentPosts.categories[0].name}
+              </div>
+            </div>
           </div>
         </div>
         <p className="line_clamp">{recentPosts.teaser}</p>

@@ -73,7 +73,12 @@ const Newestpost = ({ newPost }) => {
       <div className="mb-6 px-10">
         {moment(newPost.createdAt).format("MMM DD, YYYY")}
       </div>
-      <div className="text-5xl mb-12 px-10">{newPost.title}</div>
+      <div className="flex mb-12">
+        <div className="text-5xl mb-2 pl-10">{newPost.title}</div>
+        {/* <div className="inline-block self-center ml-2 p-1 rounded-md bg-landingbg text-background ml-10">
+          {newPost.categories[0].name}
+        </div> */}
+      </div>
       <div className="relative overflow-hidden pb-80 mb-8">
         <img
           src={newPost.contentfoto.url}
@@ -82,6 +87,7 @@ const Newestpost = ({ newPost }) => {
           loading="lazy"
         />
       </div>
+
       <div className="px-10">
         <span className="text-lg text-text font-normal">
           {newPost.content.raw.children.map((typeObj, index) => {

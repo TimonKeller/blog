@@ -21,7 +21,7 @@ const AllPosts = ({ allPosts, setLoading }) => {
             }
             <div className="flex">
               <div className="text-2xl mb-2">{allPosts.title}</div>
-              <div className="self-center mb-1 ml-2 p-1  rounded-md bg-landingbg text-background">
+              <div className="inline-block self-center text-sm mb-1 ml-4 p-1 rounded-md bg-landingbg text-background">
                 {allPosts.categories[0].name}
               </div>
             </div>
