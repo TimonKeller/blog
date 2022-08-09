@@ -8,6 +8,7 @@ export default function Home() {
         <Head>
           <title>Hier kommt noch einen Blog Namen</title>
           <link rel="icon" href="/favicon.ico" />
+          <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=T7eLgg"></script>
         </Head>
         <div className='align-center justify-center flex flex-col h-screen overflow-hidden'>
           <h1 className='text-center font-bold text-landingtext text-6xl mb-8'>
