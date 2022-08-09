@@ -40,7 +40,7 @@ a{
 .waviy span {
   position: relative;
   display: inline-block;
-  animation: flip 1s infinite;
+  animation: flip 2s infinite;
 }
 @keyframes flip {
   0%,80% {
