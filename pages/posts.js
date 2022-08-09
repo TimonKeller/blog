@@ -14,7 +14,7 @@ const posts = ({allPosts}) => {
 
   return (
     <>
-    {loading === true ? (
+    {loading === false ? (
       <>
       <Header/>
         <div className="container mx-auto mb-8">
