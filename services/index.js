@@ -135,7 +135,7 @@ export const getAllPost = async() => {
 
     const query = gql`
         query getAllPost() {
-            posts{
+            posts(orderBy: createdAt_DESC){
                 title
                 slug
                 teaser

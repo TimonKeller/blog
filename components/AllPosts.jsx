@@ -23,6 +23,8 @@ const AllPosts = ({ allPosts, setLoading }) => {
               <div className="text-2xl mb-2">{allPosts.title}</div>
               <div className="inline-block self-center text-sm mb-1 ml-4 p-1 rounded-md bg-landingbg text-background">
                 {allPosts.categories[0].name}
+
+                {console.log(allPosts.categories)}
               </div>
             </div>
           </div>
