@@ -87,7 +87,6 @@ const Newestpost = ({ newPost }) => {
           loading="lazy"
         />
       </div>
-
       <div className="px-10">
         <span className="text-lg text-text font-normal">
           {newPost.content.raw.children.map((typeObj, index) => {

@@ -8,8 +8,19 @@ const AllPosts = ({ allPosts, setLoading }) => {
       <div>
         <div>
           <div>
-            <div className="text-xs mb">
-              {moment(allPosts.createdAt).format("MMM DD, YYYY")}
+            <div className="flex place-content-between">
+              <div className="text-xs self-center ">
+                {moment(allPosts.createdAt).format("MMM DD, YYYY")}
+              </div>
+              <div className="text-md">
+                {allPosts.categories.map((category, index) => {
+                  return (
+                    <p className="self-center inline-block text-sm mx-2 border-b border-landingbg text-landingbg">
+                      {category.name}
+                    </p>
+                  );
+                })}
+              </div>
             </div>
             {
               <img
@@ -19,26 +30,21 @@ const AllPosts = ({ allPosts, setLoading }) => {
                 loading="lazy"
               />
             }
-            <div className="flex">
-              <div className="text-2xl mb-2">{allPosts.title}</div>
-              <div className="inline-block self-center text-sm mb-1 ml-4 p-1 rounded-md bg-landingbg text-background">
-                {allPosts.categories[0].name}
-
-                {console.log(allPosts.categories)}
-              </div>
-            </div>
+            <div className="text-2xl mb-2">{allPosts.title}</div>
           </div>
         </div>
         <div className="line_clamp">{allPosts.teaser}</div>
-        <div className="cursor-pointer pt-2 text-2xs ">
-          <Link href={`/post/${allPosts.slug}`} key={allPosts.title}>
-            <p
-              className="border-b-2 hover:border-black inline-block"
-              onClick={() => setLoading(true)}
-            >
-              Mehr lesen
-            </p>
-          </Link>
+        <div className="flex place-content-between mt-4">
+          <div className="cursor-pointer pt-2 text-2xs ">
+            <Link href={`/post/${allPosts.slug}`} key={allPosts.title}>
+              <p
+                className="border-b-2 hover:border-landingbg hover:text-landingbg inline-block"
+                onClick={() => setLoading(true)}
+              >
+                Mehr lesen
+              </p>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
