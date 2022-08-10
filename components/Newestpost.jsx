@@ -87,6 +87,7 @@ const Newestpost = ({ newPost }) => {
           loading="lazy"
         />
       </div>
+
       <div className="px-10">
         <span className="text-lg text-text font-normal">
           {newPost.content.raw.children.map((typeObj, index) => {
@@ -96,6 +97,26 @@ const Newestpost = ({ newPost }) => {
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
         </span>
+      </div>
+      {console.log(newPost.author)}
+
+      <div className="mt-24 bg-landingbg">
+        <div className="p-12 flex gap-x-12 items-center">
+          <img
+            src={newPost.author.foto.url}
+            alt={newPost.author.name}
+            className="object-top md:max-h-40 h-24 object-cover rounded-full"
+            loading="lazy"
+          />
+          <div>
+            <p className="md:text-2xl text-xl mb-4 text-background">
+              {newPost.author.name}
+            </p>
+            <span className="md:text-md text-sm mb-4 text-background line_clamp opacity-80">
+              {newPost.author.bio}
+            </span>
+          </div>
+        </div>
       </div>
       <div className=" container inline-flex">
         <Map>

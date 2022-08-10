@@ -23,7 +23,6 @@ const Recentposts = ({ recentPosts, newPost }) => {
                 })}
               </div>
             </div>
-
             {
               <img
                 src={recentPosts.contentfoto.url}
@@ -32,10 +31,15 @@ const Recentposts = ({ recentPosts, newPost }) => {
                 loading="lazy"
               />
             }
-
-            <div className="flex">
+            <div className="flex place-content-between">
               <div className="text-2xl mb-2">{recentPosts.title}</div>
               {console.log(recentPosts.title)}
+              {/*  <img
+                src={recentPosts.author.foto.url}
+                alt={recentPosts.author.name}
+                className="object-top md:max-h-10 object-cover rounded-full"
+                loading="lazy"
+              /> */}
             </div>
           </div>
         </div>

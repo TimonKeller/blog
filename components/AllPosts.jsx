@@ -30,6 +30,7 @@ const AllPosts = ({ allPosts, setLoading }) => {
                 loading="lazy"
               />
             }
+            {console.log(allPosts)}
             <div className="text-2xl mb-2">{allPosts.title}</div>
           </div>
         </div>
