@@ -75,9 +75,6 @@ const Newestpost = ({ newPost }) => {
       </div>
       <div className="flex mb-12">
         <div className="text-5xl mb-2 pl-10">{newPost.title}</div>
-        {/* <div className="inline-block self-center ml-2 p-1 rounded-md bg-landingbg text-background ml-10">
-          {newPost.categories[0].name}
-        </div> */}
       </div>
       <div className="relative overflow-hidden pb-80 mb-8">
         <img
@@ -118,11 +115,12 @@ const Newestpost = ({ newPost }) => {
           </div>
         </div>
       </div>
-      <div className=" container inline-flex">
-        <Map>
-          {console.log("acces-token in newpost" + process.env.mapbox_key)}
-        </Map>
-      </div>
+      <div id="map" className="container" />
+      <Map
+        longitude={newPost.location.longitude}
+        latitude={newPost.location.latitude}
+      ></Map>
+      {console.log(newPost.location.longitude)}
     </div>
   );
 };

@@ -35,6 +35,10 @@ export const getNewestPost = async() => {
                     name
                     slug
                 }
+                location {
+                    latitude
+                    longitude
+                }
             }
         }
     `;
@@ -79,6 +83,10 @@ export const getRecentPost = async(slug) => {
                 name
                 slug
               }
+              location {
+                latitude
+                longitude
+              }
             }
         }
     `;
@@ -118,6 +126,10 @@ export const getPost = async(slug) => {
                     name
                     slug
                 }
+                location {
+                    latitude
+                    longitude
+                }
             }
         }
     `;
@@ -154,6 +166,10 @@ export const getAllPost = async() => {
               categories {
                 name
                 slug
+              }
+              location {
+                latitude
+                longitude
               }
             }
         }

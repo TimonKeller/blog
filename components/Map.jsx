@@ -1,26 +1,39 @@
-import ReactMapGl from "react-map-gl";
-import React, { useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { env } from "process";
+import mapboxgl from "mapbox-gl";
 
-const Map = () => {
-  const [viewport, setViewport] = useState({
-    latitude: 47.44208,
-    longitude: 8.36439,
-    width: "100%",
-    height: "100%",
-    zoom: 11,
-  });
-  return (
-    <ReactMapGl
-      mapStyle="mapbox://styles/timon-keller/cl4cxznpw004114nxat8d7lu8"
-      mapboxAccessToken={process.env.mapbox_key}
-      {...viewport}
-      onViewportChange={(viewport) => setViewport(viewport)}
-    >
-      {console.log("acces-token " + process.env.mapbox_key)}
-    </ReactMapGl>
-  );
+const Map = ({ longitude, latitude }) => {
+  mapboxgl.accessToken = process.env.mapbox_key;
+
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+
+  useEffect(() => {
+    if (map.current) return;
+
+    if ((longitude, latitude)) {
+      map.current = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/timon-keller/cl4cxznpw004114nxat8d7lu8",
+        center: [longitude, latitude],
+        zoom: 12,
+      });
+
+      // make a marker for each feature and add to the map
+      const marker = new mapboxgl.Marker()
+        .setLngLat([longitude, latitude])
+        .addTo(map.current);
+    }
+  }, [longitude, latitude]);
+  return <div ref={mapContainer} className="map"></div>;
 };
+
+export async function getStaticProps() {
+  const newPost = (await getNewestPost()) || [];
+
+  return {
+    props: { newPost: newPost },
+  };
+}
 
 export default Map;
