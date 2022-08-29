@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Layout} from '../../components'
 
 import {getPost, getRecentPost } from '../../services';
@@ -10,7 +10,7 @@ const Post = ({post, recentPosts}) => {
     <div className="container mx-auto mb-8">
         <div className='grid grid-cols-1 lg:grid-cols-12 md:gap-x-24 lg:divide-x-2 lg:divide-slate-700 lg:px-4'>
             <div className='lg:col-span-7 col-span-1'>
-            {post.map((post, index) => <Newestpost newPost={post} key={post.title}y/>)}
+            {post.map((post, index) => <Newestpost newPost={post} key={post.title}/>)}
             </div>
             <div className='lg:col-span-5 md:px-20 px-10'>
               <div className='lg:sticky top-8 mt-12'>

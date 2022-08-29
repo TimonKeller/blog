@@ -39,6 +39,9 @@ export const getNewestPost = async() => {
                     latitude
                     longitude
                 }
+                carouselpic {
+                    url
+                }
             }
         }
     `;
@@ -105,12 +108,12 @@ export const getPost = async(slug) => {
         query getPost($slug: String!) {
             posts(where: { slug: $slug }){
                 title
-                teaser
-                createdAt
                 slug
+                id
                 contentfoto {
                     url
                 }
+                createdAt
                 content{
                     raw
                 }
@@ -119,7 +122,7 @@ export const getPost = async(slug) => {
                     name
                     id
                     foto {
-                        url
+                    url
                     }
                 }
                 categories {
@@ -130,8 +133,11 @@ export const getPost = async(slug) => {
                     latitude
                     longitude
                 }
+                carouselpic {
+                    url
+                }
             }
-        }
+        }    
     `;
     const result = await graphQLClient.request(query, { slug })
     return result.posts;

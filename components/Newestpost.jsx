@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 import Map from "./Map";
+import { privateDecrypt } from "crypto";
 
 const Newestpost = ({ newPost }) => {
+  const [carousel, setCarousel] = useState();
+
+  useEffect(() => {
+    if (newPost.carouselpic) {
+      setCarousel(true);
+    }
+  }, []);
+  {
+    console.log(carousel);
+  }
+
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -69,13 +81,27 @@ const Newestpost = ({ newPost }) => {
   };
 
   return (
-    <div className="p-0 pb-12 mb-8">
+    <div className="p-0 pb-12 mb-2">
       <div className="mb-6 px-10">
         {moment(newPost.createdAt).format("MMM DD, YYYY")}
       </div>
-      <div className="flex mb-12">
+      <div className="flex mb-4 place-content-between ">
         <div className="text-5xl mb-2 pl-10">{newPost.title}</div>
+        <div className="pl-10 flex gap-x-2 items-center self-center">
+          <img
+            src={newPost.author.foto.url}
+            alt={newPost.author.name}
+            className="object-top md:max-h-8 object-cover rounded-full"
+            loading="lazy"
+          />
+          <div>
+            <p className="md:text-xl text-xl text-text">
+              {newPost.author.name}
+            </p>
+          </div>
+        </div>
       </div>
+
       <div className="relative overflow-hidden pb-80 mb-8">
         <img
           src={newPost.contentfoto.url}
@@ -84,7 +110,6 @@ const Newestpost = ({ newPost }) => {
           loading="lazy"
         />
       </div>
-
       <div className="px-10">
         <span className="text-lg text-text font-normal">
           {newPost.content.raw.children.map((typeObj, index) => {
@@ -95,26 +120,21 @@ const Newestpost = ({ newPost }) => {
           })}
         </span>
       </div>
-      {console.log(newPost.author)}
-
-      <div className="mt-24 bg-landingbg">
-        <div className="p-12 flex gap-x-12 items-center">
-          <img
-            src={newPost.author.foto.url}
-            alt={newPost.author.name}
-            className="object-top md:max-h-40 h-24 object-cover rounded-full"
-            loading="lazy"
-          />
-          <div>
-            <p className="md:text-2xl text-xl mb-4 text-background">
-              {newPost.author.name}
-            </p>
-            <span className="md:text-md text-sm mb-4 text-background line_clamp opacity-80">
-              {newPost.author.bio}
-            </span>
-          </div>
+      {carousel && (
+        <div className="grid grid-cols-2 col-span-1 gap-2 px-4 pt-12">
+          {newPost.carouselpic?.map((pic, index) => {
+            return (
+              <img
+                src={newPost.carouselpic[index].url}
+                alt={newPost.carouselpic[index].url}
+                className="object-top h-80 w-full object-cover"
+                loading="lazy"
+              />
+            );
+          })}
         </div>
-      </div>
+      )}
+      {console.log(newPost.carouselpic)}
       <div id="map" className="container" />
       <Map
         longitude={newPost.location.longitude}
