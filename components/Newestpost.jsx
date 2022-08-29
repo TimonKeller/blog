@@ -85,13 +85,13 @@ const Newestpost = ({ newPost }) => {
       <div className="mb-6 px-10">
         {moment(newPost.createdAt).format("MMM DD, YYYY")}
       </div>
-      <div className="flex mb-4 place-content-between ">
+      <div className="md:flex mb-4 place-content-between ">
         <div className="text-5xl mb-2 pl-10">{newPost.title}</div>
         <div className="pl-10 flex gap-x-2 items-center self-center">
           <img
             src={newPost.author.foto.url}
             alt={newPost.author.name}
-            className="object-top md:max-h-8 object-cover rounded-full"
+            className="object-top max-h-8 object-cover rounded-full"
             loading="lazy"
           />
           <div>
