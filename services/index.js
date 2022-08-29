@@ -184,3 +184,24 @@ export const getAllPost = async() => {
     return result.posts;
 };
 
+
+export const getCategories = async() => {
+    const url = process.env.ENDPOINT;
+    const graphQLClient = new GraphQLClient(url, {
+        headers: {
+            "Authaurization": process.env.GRAPH_CMS_TOKEN
+        }
+    })
+
+    const query = gql`
+        query getCategories() {
+            categories {
+                name
+            }
+        }
+    `;
+    const result = await graphQLClient.request(query)
+    return result.categories;
+};
+
+

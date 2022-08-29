@@ -18,6 +18,7 @@ const Map = ({ longitude, latitude }) => {
         center: [longitude, latitude],
         zoom: 12,
       });
+      map.current.scrollZoom.disable();
 
       // make a marker for each feature and add to the map
       const marker = new mapboxgl.Marker()

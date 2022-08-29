@@ -11,7 +11,7 @@ const aboutUs = () => {
                     </h1>
                     <div className='flex flex-row justify-center mb-36'>
                         <p className='text-text text-xl text-center px-12'>
-                            Wir sind Timon und Nathalie und zusammen sind wir (Blogname).
+                            Wir sind Timon und Nathalie und zusammen sind wir akihi.
                             <br/>
                             Beide sind berufstätig und in unserer Freizeit viel unterwegs. 
                             So testen wir beispielsweise gerne neue Restaurants aus oder erkunden andere Länder und machen neue Erfahrungen. 
