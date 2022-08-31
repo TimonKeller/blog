@@ -1,30 +1,42 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const Filter = ({ allCategories }) => {
-  const ref = useRef(null);
+const Filter = ({ allCategories, changeCategories }) => {
   const [active, setActive] = useState();
+  const [activeCategories, setActiveCategories] = useState([]);
   useEffect(() => {
-    setActive(false);
+    setActive(true);
+    setActiveCategories(allCategories);
   }, []);
+
+  function Click() {
+    if (active === true) {
+      setActive(false);
+      setActiveCategories(!allCategories.name);
+      changeCategories(!allCategories.name);
+    } else {
+      setActive(true);
+      setActiveCategories(allCategories.name);
+      changeCategories(allCategories.name);
+    }
+  }
 
   return (
     <div>
       {active === true ? (
         <button
-          className=" p-2 text-sm rounded-md bg-landingbg border-background text-background"
-          onClick={() => setActive(false)}
+          className="border p-2 text-sm rounded-md bg-landingbg border-background text-background"
+          onClick={() => Click()}
         >
           {allCategories.name}
         </button>
       ) : (
         <button
           className="border p-2 text-sm bg-background rounded-md "
-          onClick={() => setActive(true)}
+          onClick={() => Click()}
         >
           {allCategories.name}
         </button>
       )}
-      {console.log(active)}
     </div>
   );
 };

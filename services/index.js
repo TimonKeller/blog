@@ -204,4 +204,44 @@ export const getCategories = async() => {
     return result.categories;
 };
 
+export const getFilteredPosts = async (categories) => {
+    const url = process.env.ENDPOINT;
+    const graphQLClient = new GraphQLClient(url, {
+        headers: {
+            "Authaurization": process.env.GRAPH_CMS_TOKEN
+        }
+    })
+
+   const query = gql`
+        query getFilteredPosts($categories: [String!]) {
+            posts(where: {categories_some: {name_in: $categories}}) {
+                title
+                slug
+                teaser
+                contentfoto {
+                url
+                }
+                createdAt
+                author {
+                bio
+                name
+                id
+                foto {
+                    url
+                }
+                }
+                categories {
+                name
+                slug
+                }
+                location {
+                latitude
+                longitude
+                }
+            }
+        }
+    `;    
+    const result = await graphQLClient.request(query, {categories})
+    return result.posts;
+}
 

@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react'
-import AllPosts from '../components/AllPosts';
-import { Header, Layout } from '../components';
-
-import { getAllPost, getCategories } from '../services';
-import LoadingPage from '../components/LoadingPage';
+import { Header, LoadingPage, AllPosts } from '../components';
 import Filter from "../components/Filter";
 
-const posts = ({allPosts, allCategories}) => {
-  const [loading, setLoading] = useState(false)
+import { getAllPost, getCategories, getFilteredPosts } from '../services';
 
-  useEffect(() => {
+
+const posts = ({allCategories, filteredPosts}) => {
+  const [loading, setLoading] = useState(false)
+  const [categories, setCategories] = useState(["Switzerland"]);
+
+  useEffect(() =>  {
     setTimeout(() => setLoading(false), 10000)
   }, [])
 
@@ -30,12 +30,13 @@ const posts = ({allPosts, allCategories}) => {
             </div>
             <div className='pt-6 '>
               <div className='flex flex-row gap-x-4 justify-center'>
-              {allCategories.map((allCategories,index) => <Filter allCategories={allCategories} key={allCategories} /> )} 
+                {allCategories.map((allCategories,index) => <Filter allCategories={allCategories} key={allCategories} changeCategories={categories => setCategories(categories)}/> )}
              </div>
               <div className=' grid grid-cols-1 lg:grid-cols-3 col-span-1 gap-x-20 px-4 pt-12'>
-                {allPosts.map((allPosts, index) => <AllPosts allPosts={allPosts} key={allPosts.title} setLoading={() => setLoading(true)} />)}
+                {filteredPosts.map((filteredPosts, index) => <AllPosts allPosts={filteredPosts} key={filteredPosts.title} setLoading={() => setLoading(true)} category={categories} />)}
               </div>
             </div>
+            {console.log(categories)}
           </div>
         </div>
       </>
@@ -53,8 +54,9 @@ export default posts
 export async function getStaticProps(){
     const data = await getAllPost()
     const cat = await getCategories()
+    const fltrCategories = await getFilteredPosts(["Switzerland", "Food"])
     return {
-      props: {allPosts: data, allCategories:cat}
+      props: {allPosts: data, allCategories:cat, filteredPosts: fltrCategories}
     }
 }
 

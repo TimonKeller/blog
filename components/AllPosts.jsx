@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Link from "next/link";
 
-const AllPosts = ({ allPosts, setLoading }) => {
+const AllPosts = ({ allPosts, setLoading, categories }) => {
   return (
     <div className="pb-12">
       <div>
@@ -30,7 +30,6 @@ const AllPosts = ({ allPosts, setLoading }) => {
                 loading="lazy"
               />
             }
-            {console.log(allPosts)}
             <div className="text-2xl mb-2">{allPosts.title}</div>
           </div>
         </div>
