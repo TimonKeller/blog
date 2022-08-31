@@ -214,7 +214,7 @@ export const getFilteredPosts = async (categories) => {
 
    const query = gql`
         query getFilteredPosts($categories: [String!]) {
-            posts(where: {categories_some: {name_in: $categories}}) {
+            posts(where: {categories_every: {name_in: $categories}}) {
                 title
                 slug
                 teaser

@@ -4,19 +4,19 @@ const Filter = ({ allCategories, changeCategories }) => {
   const [active, setActive] = useState();
   const [activeCategories, setActiveCategories] = useState([]);
   useEffect(() => {
-    setActive(true);
+    setActive(false);
     setActiveCategories(allCategories);
   }, []);
 
   function Click() {
-    if (active === true) {
-      setActive(false);
-      setActiveCategories(!allCategories.name);
-      changeCategories(!allCategories.name);
-    } else {
+    if (active === false) {
       setActive(true);
       setActiveCategories(allCategories.name);
       changeCategories(allCategories.name);
+    } else {
+      setActive(true);
+      setActiveCategories(!allCategories.name);
+      changeCategories(!allCategories.name);
     }
   }
 

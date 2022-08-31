@@ -5,12 +5,14 @@ import Filter from "../components/Filter";
 import { getAllPost, getCategories, getFilteredPosts } from '../services';
 
 
-const posts = ({allCategories, filteredPosts}) => {
+const posts = ({allPosts, allCategories, filteredPosts}) => {
   const [loading, setLoading] = useState(false)
-  const [categories, setCategories] = useState(["Switzerland"]);
+  const [categories, setCategories] = useState([]);
+  const [renderPosts, setRenderPosts] = useState([]);
 
   useEffect(() =>  {
     setTimeout(() => setLoading(false), 10000)
+    setCategories(false)
   }, [])
 
   return (
@@ -30,13 +32,20 @@ const posts = ({allCategories, filteredPosts}) => {
             </div>
             <div className='pt-6 '>
               <div className='flex flex-row gap-x-4 justify-center'>
-                {allCategories.map((allCategories,index) => <Filter allCategories={allCategories} key={allCategories} changeCategories={categories => setCategories(categories)}/> )}
+                {allCategories.map((allCategories,index) => <Filter allCategories={allCategories} key={allCategories.name} changeCategories={categories => setCategories(categories)}/> )}
              </div>
               <div className=' grid grid-cols-1 lg:grid-cols-3 col-span-1 gap-x-20 px-4 pt-12'>
-                {filteredPosts.map((filteredPosts, index) => <AllPosts allPosts={filteredPosts} key={filteredPosts.title} setLoading={() => setLoading(true)} category={categories} />)}
+                {categories === false ? (
+                  <>
+                    {allPosts.map((allPosts, index) => <AllPosts allPosts={allPosts} key={allPosts.title} setLoading={() => setLoading(true)} category={categories} />)}
+                  </>
+                ):
+                  <>
+                    {filteredPosts.map((filteredPosts, index) => <AllPosts allPosts={filteredPosts} key={filteredPosts.title} setLoading={() => setLoading(true)} category={categories} />)}
+                  </>
+                }
               </div>
             </div>
-            {console.log(categories)}
           </div>
         </div>
       </>
@@ -54,7 +63,7 @@ export default posts
 export async function getStaticProps(){
     const data = await getAllPost()
     const cat = await getCategories()
-    const fltrCategories = await getFilteredPosts(["Switzerland", "Food"])
+    const fltrCategories = await getFilteredPosts(["Switzerland"])
     return {
       props: {allPosts: data, allCategories:cat, filteredPosts: fltrCategories}
     }
