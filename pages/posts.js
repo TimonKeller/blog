@@ -41,7 +41,7 @@ const posts = ({allPosts, allCategories, filteredPosts}) => {
                   </>
                 ):
                   <>
-                    {filteredPosts.map((filteredPosts, index) => <AllPosts allPosts={filteredPosts} key={filteredPosts.title} setLoading={() => setLoading(true)} category={categories} />)}
+                    {filteredPosts.map((filteredPosts, index) => <filteredPosts filteredPosts={filteredPosts} key={filteredPosts.title} setLoading={() => setLoading(true)} category={categories} />)}
                   </>
                 }
               </div>

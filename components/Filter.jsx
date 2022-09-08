@@ -14,7 +14,7 @@ const Filter = ({ allCategories, changeCategories }) => {
       setActiveCategories(allCategories.name);
       changeCategories(allCategories.name);
     } else {
-      setActive(true);
+      setActive(false);
       setActiveCategories(!allCategories.name);
       changeCategories(!allCategories.name);
     }
