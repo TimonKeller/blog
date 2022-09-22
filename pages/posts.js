@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import { Header, LoadingPage, AllPosts } from '../components';
+import { Header, AllPosts } from '../components';
 import Filter from "../components/Filter";
+import LoadingPage from '../components/LoadingPage';
 
 import { getAllPost, getCategories, getFilteredPosts } from '../services';
 
@@ -8,7 +9,6 @@ import { getAllPost, getCategories, getFilteredPosts } from '../services';
 const posts = ({allPosts, allCategories, filteredPosts}) => {
   const [loading, setLoading] = useState(false)
   const [categories, setCategories] = useState([]);
-  const [renderPosts, setRenderPosts] = useState([]);
 
   useEffect(() =>  {
     setTimeout(() => setLoading(false), 10000)
